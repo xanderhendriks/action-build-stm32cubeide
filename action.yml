@@ -1,0 +1,16 @@
+# action.yml
+name: 'Build STM32CubeIde project'
+description: 'Build the selected target in an STM32CubeIde project'
+inputs:
+  project-path:  # id of input
+    description: 'Path to STM32CubeIde project'
+    required: true
+  project-target:  # id of input
+    description: 'Which target in the STM32CubeIde project to build'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.project-path }}
+    - ${{ inputs.project-target }}
