@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM xanderhendriks/stm32cubeide:6.0
+FROM xanderhendriks/stm32cubeide:7.0
 
 RUN apt-get -y update && \
     apt-get -y install python3 python3-pip && \
