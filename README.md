@@ -14,10 +14,12 @@ This action builds a STM32CubeIde project
 
 ## Example usage
 
-uses: xanderhendriks/action-build-stm32cubeide@v5.0
-with:
-  project-path: 'application/targets/STM32'
-  project-target: 'hexanode'
+```yaml
+- uses: xanderhendriks/action-build-stm32cubeide@v5.0
+  with:
+    project-path: 'application/targets/STM32'
+    project-target: 'hexanode'
+```
 
 ### STM32 Cube IDE Versions
 
