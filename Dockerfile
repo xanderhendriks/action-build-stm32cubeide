@@ -10,6 +10,12 @@ RUN apt-get -y update && \
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 
+# Add erpcgen
+RUN curl -L -o /tmp/erpcgen.zip https://github.com/EmbeddedRPC/erpc/releases/download/1.9.1/Linux_x64.zip && \
+    unzip -p /tmp/erpcgen.zip > /usr/bin/erpcgen && \
+    chmod a+x /usr/bin/erpcgen && \
+    rm /tmp/erpcgen.zip
+
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 
