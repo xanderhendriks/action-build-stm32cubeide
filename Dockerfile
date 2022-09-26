@@ -11,7 +11,7 @@ COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 
 # Add erpcgen
-RUN curl -L -o /tmp/erpcgen.zip https://github.com/EmbeddedRPC/erpc/releases/download/1.9.0/Linux_x64.zip && \
+RUN curl -L -o /tmp/erpcgen.zip https://github.com/EmbeddedRPC/erpc/releases/download/1.9.1/Linux_x64.zip && \
     unzip -p /tmp/erpcgen.zip > /usr/bin/erpcgen && \
     chmod a+x /usr/bin/erpcgen && \
     rm /tmp/erpcgen.zip
