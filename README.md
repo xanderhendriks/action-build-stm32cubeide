@@ -33,5 +33,6 @@ The major.minor version number indicates the version of the underlying [STM32Cub
 - 7.0: STM32 Cube IDE: 1.10.1
 - 8.0: STM32 Cube IDE: 1.11.2
 - 9.0: STM32 Cube IDE: 1.12.1
+- 10.0: STM32 Cube IDE: 1.13.1
 
 NOTE: Bug fixes are only implemented for older versions if requested.
