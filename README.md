@@ -10,15 +10,25 @@ This action builds a STM32CubeIde project
 
 ### `project-target`
 
-**Required** Target in the STM32CubeIde project file to build. Format: target/[build-configuration]
+**Required** Target in the STM32CubeIde project file to build. Format: target/[build-configuration]  
+note: When no build-configuration is given all the projects configuration are build
 
 ## Example usage
 
+Building only the Debug configuration:
 ```yaml
-- uses: xanderhendriks/action-build-stm32cubeide@v5.0
+- uses: xanderhendriks/action-build-stm32cubeide@v10.0
   with:
-    project-path: 'application/targets/STM32'
-    project-target: 'hexanode'
+    project-path: 'applications/sample_application/targets/STM32'
+    project-target: 'sample_application/Debug'    
+```
+
+Building all the configurations (Debug/Release):
+```yaml
+- uses: xanderhendriks/action-build-stm32cubeide@v10.0
+  with:
+    project-path: 'applications/sample_application/targets/STM32'
+    project-target: 'sample_application'    
 ```
 
 ### STM32 Cube IDE Versions
