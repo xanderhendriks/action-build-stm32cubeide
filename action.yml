@@ -6,7 +6,7 @@ inputs:
     description: 'Path to STM32CubeIde project'
     required: true
   project-target:  # id of input
-    description: 'Which target in the STM32CubeIde project to build'
+    description: 'Which target in the STM32CubeIde project to build. Format: target/[build-configuration]'
     required: true
 runs:
   using: 'docker'

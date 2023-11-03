@@ -10,7 +10,7 @@ This action builds a STM32CubeIde project
 
 ### `project-target`
 
-**Required** Target in the STM32CubeIde project file to build.
+**Required** Target in the STM32CubeIde project file to build. Format: target/[build-configuration]
 
 ## Example usage
 
