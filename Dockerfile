@@ -2,7 +2,7 @@
 FROM xanderhendriks/stm32cubeide:12.0
 
 RUN apt-get -y update && \
-    apt-get -y install curl python3 python3-pip && \
+    apt-get -y install curl python3 python3-pip git && \
     ln -s $(which python3) /usr/bin/python
 
 # The requirements.txt comes from the Middlewares\ST\STM32_Secure_Engine\Utilities\KeysAndImages\ directory
