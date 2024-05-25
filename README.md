@@ -31,6 +31,8 @@ Building all the configurations (Debug/Release):
     project-target: 'sample_application'    
 ```
 
+A working STM32 application example can be found here: [xanderhendriks/stm32-sample-application](https://github.com/xanderhendriks/stm32-sample-application)
+
 ### STM32 Cube IDE Versions
 
 The major.minor version number indicates the version of the underlying [STM32CubeIde docker image](https://hub.docker.com/repository/docker/xanderhendriks/stm32cubeide) being used. The bug fix number shows updates to this build action only:
