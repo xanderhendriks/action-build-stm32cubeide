@@ -10,7 +10,7 @@ This action builds a STM32CubeIde project
 
 ### `project-target`
 
-**Required** Target in the STM32CubeIde project file to build. Format: target/[build-configuration]  
+**Required** Target in the STM32CubeIde project file to build. Format: target/[build-configuration]
 note: When no build-configuration is given all the projects configuration are build
 
 ## Example usage
@@ -20,7 +20,7 @@ Building only the Debug configuration:
 - uses: xanderhendriks/action-build-stm32cubeide@v10.0
   with:
     project-path: 'applications/sample_application/targets/STM32'
-    project-target: 'sample_application/Debug'    
+    project-target: 'sample_application/Debug'
 ```
 
 Building all the configurations (Debug/Release):
@@ -28,7 +28,7 @@ Building all the configurations (Debug/Release):
 - uses: xanderhendriks/action-build-stm32cubeide@v10.0
   with:
     project-path: 'applications/sample_application/targets/STM32'
-    project-target: 'sample_application'    
+    project-target: 'sample_application'
 ```
 
 A working STM32 application example can be found here: [xanderhendriks/stm32-sample-application](https://github.com/xanderhendriks/stm32-sample-application)
@@ -48,5 +48,6 @@ The major.minor version number indicates the version of the underlying [STM32Cub
 - 10.0: STM32 Cube IDE: 1.13.1
 - 11.0: STM32 Cube IDE: 1.14.0
 - 12.0: STM32 Cube IDE: 1.15.0
+- 13.0: STM32 Cube IDE: 1.16.0
 
 NOTE: Bug fixes are only implemented for older versions if requested.
