@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM xanderhendriks/stm32cubeide:13.0
+FROM xanderhendriks/stm32cubeide:14.0
 
 RUN apt-get -y update && \
     apt-get -y install curl python3 python3-pip git && \
