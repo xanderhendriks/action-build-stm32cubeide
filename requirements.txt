@@ -1,5 +1,0 @@
-pycryptodome
-pycryptodomex
-ecdsa
-pyelftools
-numpy
