@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM xanderhendriks/stm32cubeide:14.0
+FROM xanderhendriks/stm32cubeide:15.0
 
 # The requirements come from the Middlewares\ST\STM32_Secure_Engine\Utilities\KeysAndImages\ directory
 # in the sitehive-stm32-sbsfu repo
