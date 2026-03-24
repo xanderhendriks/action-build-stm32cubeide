@@ -13,6 +13,10 @@ This action builds a STM32CubeIde project
 **Required** Target in the STM32CubeIde project file to build. Format: target/[build-configuration]
 note: When no build-configuration is given all the projects configuration are build
 
+### `stm32cubeide-version`
+
+Optional tag of the `xanderhendriks/stm32cubeide` image to use. Defaults to `2.1.1`.
+
 ## Example usage
 
 Building only the Debug configuration:
@@ -31,26 +35,23 @@ Building all the configurations (Debug/Release):
     project-target: 'sample_application'
 ```
 
+Selecting a specific STM32CubeIDE image tag:
+```yaml
+- uses: xanderhendriks/action-build-stm32cubeide@v10.0
+  with:
+    project-path: 'applications/sample_application/targets/STM32'
+    project-target: 'sample_application/Debug'
+    stm32cubeide-version: '15.0'
+```
+
 A working STM32 application example can be found here: [xanderhendriks/stm32-sample-application](https://github.com/xanderhendriks/stm32-sample-application)
 
 ### STM32 Cube IDE Versions
 
-The major.minor version number indicates the version of the underlying [STM32CubeIde docker image](https://hub.docker.com/repository/docker/xanderhendriks/stm32cubeide) being used. The bug fix number shows updates to this build action only:
-- 1.0: STM32 Cube IDE: 1.4.0
-- 2.0: STM32 Cube IDE: 1.5.0
-- 3.0: STM32 Cube IDE: 1.6.0
-- 4.0.2: STM32 Cube IDE: 1.7.0
-- 5.0: STM32 Cube IDE: 1.8.0
-- 6.0: STM32 Cube IDE: 1.9.0
-- 7.0: STM32 Cube IDE: 1.10.1
-- 8.0: STM32 Cube IDE: 1.11.2
-- 9.0: STM32 Cube IDE: 1.12.1
-- 10.0: STM32 Cube IDE: 1.13.1
-- 11.0: STM32 Cube IDE: 1.14.0
-- 12.0: STM32 Cube IDE: 1.15.0
-- 13.0: STM32 Cube IDE: 1.16.0
-- 14.0: STM32 Cube IDE: 1.17.0
-- 15.0: STM32 Cube IDE: 1.18.0 - Using -importAll
-- 16.0: STM32 Cube IDE: 1.19.0
+The action version and the STM32CubeIDE image version are now independent. By default this action uses tag `2.1.1` of the [xanderhendriks/stm32cubeide](https://hub.docker.com/repository/docker/xanderhendriks/stm32cubeide) image, and you can override that with `stm32cubeide-version`.
 
-NOTE: Bug fixes are only implemented for older versions if requested.
+This keeps action releases focused on action behavior, while the STM32CubeIDE version is selected explicitly per workflow.
+
+The action mounts its own [entrypoint.sh](entrypoint.sh) into the container and executes it there, so the image stays reusable while the build workflow remains defined in this repository.
+
+The shared command line dependencies used by this action are expected to be baked into the published STM32CubeIDE image.

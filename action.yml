@@ -8,9 +8,25 @@ inputs:
   project-target:  # id of input
     description: 'Which target in the STM32CubeIde project to build. Format: target/[build-configuration]'
     required: true
+  stm32cubeide-version:
+    description: 'Tag of the xanderhendriks/stm32cubeide image to use'
+    required: false
+    default: '2.1.1'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.project-path }}
-    - ${{ inputs.project-target }}
+  using: 'composite'
+  steps:
+    - name: Build STM32CubeIDE project
+      shell: bash
+      env:
+        ACTION_PATH: ${{ github.action_path }}
+        PROJECT_PATH: ${{ inputs.project-path }}
+        PROJECT_TARGET: ${{ inputs.project-target }}
+        STM32CUBEIDE_VERSION: ${{ inputs.stm32cubeide-version }}
+      run: |
+        set -euo pipefail
+        docker run --rm \
+          --workdir /github/workspace \
+          -v "${GITHUB_WORKSPACE}:/github/workspace" \
+          -v "${ACTION_PATH}:/github/action:ro" \
+          "xanderhendriks/stm32cubeide:${STM32CUBEIDE_VERSION}" \
+          bash /github/action/entrypoint.sh "${PROJECT_PATH}" "${PROJECT_TARGET}"
